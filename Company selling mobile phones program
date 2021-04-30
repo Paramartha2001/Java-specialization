@@ -1,0 +1,66 @@
+package mypack;
+import java.util.Random;;
+public class Mobile {
+public static void main(String[] args) throws
+SamebrandMobileException{
+Random r = new Random();
+int count = 0;
+Company c1 = new Company();
+for(int i = 1; i<11;i++) {
+int a = r.nextInt(2) + 0;
+int b;
+int c;
+int d;
+if(a==1) {
+b=0;
+c=0;
+d=0;
+}
+else {
+b = r.nextInt(2) + 0;
+if(b==1) {
+c = 0;
+d = 0;
+}
+else {
+c = r.nextInt(2) + 0;
+if(c==1) {
+d = 0;
+}
+else {
+d = 1;
+}
+}
+}c1.Quantity(a, b, c, d);
+if(c1.Oneplus>3||c1.Apple>3||c1.Redmi>3||c1.Samsung>3) {
+System.out.println("Oneplus mobile are: " + c1.Oneplus);
+System.out.println("Apple mobile are: " + c1.Apple);
+System.out.println("Samsung mobile are: " + c1.Samsung);
+System.out.println("Redmi mobile are: " + c1.Redmi);
+throw new SamebrandMobileException("Can't take mobile more than
+thrice");
+}
+}
+System.out.println("Oneplus mobile are: " + c1.Oneplus);
+System.out.println("Apple mobile are: " + c1.Apple);
+System.out.println("Samsung mobile are: " + c1.Samsung);
+System.out.println("Redmi mobile are: " + c1.Redmi);
+}
+}
+class Company{
+int Oneplus;
+int Apple;
+int Samsung;
+int Redmi;
+public void Quantity(int o, int a, int s, int r) {
+Oneplus = Oneplus + o;
+Apple = Apple + a;
+Samsung = Samsung + s;
+Redmi = Redmi + r;
+}
+}
+class SamebrandMobileException extends Exception{
+public SamebrandMobileException(String s) {
+super(s);
+}
+}
